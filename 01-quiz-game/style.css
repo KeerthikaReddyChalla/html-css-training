@@ -1,4 +1,4 @@
-/* Basic Reset */
+
 
 * {
   margin: 0;
@@ -26,7 +26,6 @@ body {
   position: relative;
 }
 
-/* SCREENS */
 .screen {
   display: none;
   padding: 2rem;
@@ -37,7 +36,7 @@ body {
   display: block;
 }
 
-/* START SCREEN */
+
 
 #start-screen h1 {
   color: #e86a33;
@@ -119,7 +118,7 @@ body {
   transition: width 0.3s ease;
 }
 
-/* RESULT SCREEN */
+
 
 #result-screen h1 {
   color: #e86a33;
@@ -160,9 +159,9 @@ button:hover {
   background-color: #d45b28;
 }
 
-/* RESPONSIVE DESIGN */
+
 @media (max-width: 500px) {
-  /* when we hit 500px and below, implement the styles below */
+
 
   .screen {
     padding: 1rem;

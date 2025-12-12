@@ -1,4 +1,3 @@
-// DOM Elements
 const startScreen = document.getElementById("start-screen");
 const quizScreen = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
@@ -62,7 +61,7 @@ const quizQuestions = [
   },
 ];
 
-// QUIZ STATE VARS
+
 let currentQuestionIndex = 0;
 let score = 0;
 let answersDisabled = false;
@@ -70,12 +69,12 @@ let answersDisabled = false;
 totalQuestionsSpan.textContent = quizQuestions.length;
 maxScoreSpan.textContent = quizQuestions.length;
 
-// event listeners
+
 startButton.addEventListener("click", startQuiz);
 restartButton.addEventListener("click", restartQuiz);
 
 function startQuiz() {
-  // reset vars
+
   currentQuestionIndex = 0;
   score = 0;
   scoreSpan.textContent = 0;
@@ -87,7 +86,7 @@ function startQuiz() {
 }
 
 function showQuestion() {
-  // reset state
+
   answersDisabled = false;
 
   const currentQuestion = quizQuestions[currentQuestionIndex];
@@ -106,7 +105,7 @@ function showQuestion() {
     button.textContent = answer.text;
     button.classList.add("answer-btn");
 
-    // what is dataset? it's a property of the button element that allows you to store custom data
+   
     button.dataset.correct = answer.correct;
 
     button.addEventListener("click", selectAnswer);
@@ -116,7 +115,7 @@ function showQuestion() {
 }
 
 function selectAnswer(event) {
-  // optimization check
+
   if (answersDisabled) return;
 
   answersDisabled = true;
@@ -124,7 +123,7 @@ function selectAnswer(event) {
   const selectedButton = event.target;
   const isCorrect = selectedButton.dataset.correct === "true";
 
-  // Here Array.from() is used to convert the NodeList returned by answersContainer.children into an array, this is because the NodeList is not an array and we need to use the forEach method
+  
   Array.from(answersContainer.children).forEach((button) => {
     if (button.dataset.correct === "true") {
       button.classList.add("correct");
@@ -141,7 +140,7 @@ function selectAnswer(event) {
   setTimeout(() => {
     currentQuestionIndex++;
 
-    // check if there are more questions or if the quiz is over
+   
     if (currentQuestionIndex < quizQuestions.length) {
       showQuestion();
     } else {
